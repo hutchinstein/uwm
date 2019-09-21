@@ -1,20 +1,13 @@
 import math
 
+
 def main():
-    a,b = int, input("Enter coordinates of your first point. Format: x,y ").split(",")
-    c,d = int, input("Enter coordinates of your second point. Format: x,y ").split(",")
-    # e holds value of x coordinates
-    if a > c:
-        e = (a - c)**2
-    else:
-        e = (c - a)**2
-    # f holds value of y coordinates
-    if b > d:
-        f = (b - d)**2
-    else:
-        f = (d - b)**2
-    # calculate solution
-    g = math.sqrt(e + f)
+    x1, y1 = map(float, input("Enter coordinates of your first point. Format: x,y ").split(","))
+    x2, y2 = map(float, input("Enter coordinates of your second point. Format: x,y ").split(","))
+    x = abs(x1 - x2)**2
+    y = abs(y1 - y2)**2
+    g = math.sqrt(x + y)
+    g = round(g, 2)
     print(g)
 
 main()
