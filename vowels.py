@@ -8,8 +8,6 @@ def main():
     for i in word:
         if i in vowels:
             vowelCount += 1
-            print("vowel!")
-        print(i)
     print("The total number of vowels is:", vowelCount)
 
 
