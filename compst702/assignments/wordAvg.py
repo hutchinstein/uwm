@@ -2,7 +2,6 @@ def main():
     sentence = input("Enter the sentence you would like analyzed: ")
     sentList = []
     sentList = sentence.split()
-    print(sentList)
     counter = 0
     total = 0
     for i in sentList:
