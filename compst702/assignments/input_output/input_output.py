@@ -15,3 +15,6 @@ for line in infile:
 
     print(raw, square, cube, root, file=outfile)
     print(raw, square, cube, root)
+
+infile.close()
+outfile.close()
