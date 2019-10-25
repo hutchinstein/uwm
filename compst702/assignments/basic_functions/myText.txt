@@ -1,0 +1,6 @@
+Hello world
+what a great program this is
+counting words
+counting lines
+all done automatically
+through the magic of python

@@ -7,5 +7,7 @@ def main():
         power -= 1
         base10 = base10 + a
     print(base10)
+    return base10
 
-main()
+while True:
+    main()

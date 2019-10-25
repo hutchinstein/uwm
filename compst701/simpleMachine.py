@@ -1,6 +1,4 @@
-binaryList = ["0001000001000000", "0001000101000001", "0111001000000001", "0001001101000010",
-              "0001010001000011", "0111010100110100", "1000011000100101", "0011011011111111",
-              "1100000000000000"]
+binaryList = ["0001010011011111", "0011110010101011", "0111101110101100", "1000000110101101", "1001110010111111"]
 
 hexdict = {
     "0000": "0",
@@ -64,16 +62,16 @@ def and_func(register, operandA, operandB):
 
 
 def xor_func(register, operandA, operandB):
-    print("")
+    print("XOR")
 
 
 # do not need operandA
 def rotate_func(register, operandB):
-    print("")
+    print("ROTATE")
 
 
 def jump_func(register, operandA, operandB):
-    print("")
+    print("JUMP")
 
 
 def main():

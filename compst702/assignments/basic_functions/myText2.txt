@@ -1,0 +1,11 @@
+Hello world
+this is a second
+text file
+that contains words
+on different lines
+this is input
+for my program
+to read the number of total words
+as well as the total number of lines
+that are stored here
+isn't that neat
