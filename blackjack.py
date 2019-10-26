@@ -123,11 +123,6 @@ def checkScore():
         game = False
         playerWins = False
         betting()
-    elif dealerScore > 21:
-        print("Dealer busts! You win!")
-        playerWins = True
-        game = False
-        betting()
     elif dealerScore == 21 and playerScore == 21:
         print("Tie, dealer wins!")
         playerWins = False
@@ -147,7 +142,14 @@ def checkScore():
         blackjack = True
         game = False
         betting()
+    elif dealerScore > 21:
+        print("Dealer busts! You win!")
+        playerWins = True
+        game = False
+        betting()
     if not hitting:
+        #TODO game still ending while hitting
+        #TODO move this to stay function?
         if dealerScore == playerScore:
             print("Tie, dealer wins!")
             playerWins = False
