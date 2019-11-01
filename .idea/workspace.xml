@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fee345e7-95b2-4015-a41f-c752b4852cc4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/compst702/assignments/sandbox.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uwm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uwm.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compst702/assignments/midterm.py" beforeDir="false" afterPath="$PROJECT_DIR$/compst702/assignments/midterm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compst702/assignments/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/compst702/assignments/output.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,11 +23,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="midterm.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="midterm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/compst702/assignments/midterm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-527">
-              <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+            <state relative-caret-position="66">
+              <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+              <folding>
+                <element signature="e#117#130#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -39,7 +40,7 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="output.txt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="output.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/compst702/assignments/output.txt">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -47,15 +48,6 @@
       <file leaf-file-name="funcs.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/compst702/assignments/basic_functions/funcs.py">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="inputText.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/compst702/assignments/inputText.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="499" column="6" selection-start-line="499" selection-start-column="6" selection-end-line="499" selection-end-column="6" />
-            </state>
-          </provider>
         </entry>
       </file>
       <file leaf-file-name="simpleMachine.py" pinned="false" current-in-tab="false">
@@ -135,8 +127,8 @@
         <option value="$PROJECT_DIR$/compst702/assignments/credits.py" />
         <option value="$PROJECT_DIR$/compst702/assignments/inputText.txt" />
         <option value="$PROJECT_DIR$/compst702/assignments/sandbox.py" />
-        <option value="$PROJECT_DIR$/compst702/assignments/midterm.py" />
         <option value="$PROJECT_DIR$/compst702/assignments/output.txt" />
+        <option value="$PROJECT_DIR$/compst702/assignments/midterm.py" />
       </list>
     </option>
   </component>
@@ -563,15 +555,18 @@
     <entry file="file://$PROJECT_DIR$/compst702/assignments/sandbox.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/compst702/assignments/output.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/compst702/assignments/midterm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-527">
-          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+        <state relative-caret-position="66">
+          <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <folding>
+            <element signature="e#117#130#0" expanded="true" />
+          </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/compst702/assignments/output.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

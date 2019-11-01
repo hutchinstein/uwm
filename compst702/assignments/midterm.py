@@ -1,4 +1,17 @@
+# This program picks a random number between 1 and 100 the user then   #
+# has 8 attempts to guess the number. For each guess the user is told  #
+# if their guess was too high or too low.  All guesses are printed     #
+# to the screen as well as the number of guesses remaining.  If the    #
+# user guesses the answer correctly the game ends.  A second function  #
+# is called once the game is over to write to a file the game number   #
+# currently being played and the result; victory or loss.  After each  #
+# game the user can choose to continue playing or quit.  To track each #
+# session of game play when a new series of games is started the       #
+# program writes to the score file the start time and end point of     #
+# the session.                                                         #
+
 import random
+from datetime import datetime
 
 
 def num_guess(game_number):
@@ -6,7 +19,7 @@ def num_guess(game_number):
     game_number = game_number
     game_over = False
     victory = False
-    hidden_number = random.randint(1, 101)
+    hidden_number = random.randint(1, 100)
     total_games = 8
     guessed_numbers = []
     while not game_over:
@@ -32,6 +45,7 @@ def num_guess(game_number):
         outcome = "Victory"
     else:
         outcome = "Loss"
+        print("The secret number was", hidden_number)
     score_keeping(outcome, game_number)
 
 
@@ -46,11 +60,21 @@ def score_keeping(outcome, games_played):
 def main():
     playing = True
     game_number = 1
+    file = open("output.txt", "a+")
+    start_time = str(datetime.now())
+    start_time = start_time[:-7]
+    start_string = "\nNow tracking games started at " + start_time + "\n"
+    file.write(start_string)
+    file.close()
     while playing:
         num_guess(game_number)
         continue_to_play = input("Press q to quit, press enter to continue ")
         if continue_to_play.lower() == "q":
             playing = False
+            file = open("output.txt", "a+")
+            quit_string = "Games started at " + start_time + " over. \n"
+            file.write(quit_string)
+            file.close()
         game_number += 1
 
 

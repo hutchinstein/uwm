@@ -1,2 +1,12 @@
-Game 1 ended in a loss
-Game 2 ended in a loss
+
+Now tracking games started at 2019-11-01 13:17:10
+Game 1 ended in a victory
+Game 2 ended in a victory
+Game 3 ended in a loss
+Game 4 ended in a victory
+Games started at 2019-11-01 13:17:10 over. 
+
+Now tracking games started at 2019-11-01 13:19:48
+Game 1 ended in a victory
+Game 2 ended in a victory
+Games started at 2019-11-01 13:19:48 over. 
