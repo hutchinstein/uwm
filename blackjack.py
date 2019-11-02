@@ -115,8 +115,9 @@ def showScore(player, hand):
 
 
 def checkScore():
+    print("checkScore")
     dealerScore = getScore(dealerHand)
-    global game, playerWins, blackjack
+    global game, playerWins, blackjack, playerDone, hitting
     playerScore = getScore(playerHand)
     if playerScore > 21:
         print("You bust! You lose!")
@@ -130,6 +131,7 @@ def checkScore():
         game = False
     elif dealerScore == 21 and playerScore != 21:
         if playerDone:
+            print(playerDone)
             print("Dealer wins")
             playerWins = False
             game = False
@@ -157,8 +159,9 @@ def checkScore():
             game = False
 
 
+
 def stay(dealerScore, playerScore):
-    # print("stay")
+    print("stay")
     global game, playerWins
     checkScore()
     global playerDone
@@ -182,7 +185,7 @@ def stay(dealerScore, playerScore):
 
 def playerAction():
     global game, playing, hitting
-    # print("playerAction")
+    print("playerAction")
     response = input("Would you like to (h)it or s(tay)? ")
     response = response.lower()
     print("\n")
@@ -203,7 +206,7 @@ def playerAction():
 
 
 def betting():
-    # print("Betting")
+    print("Betting")
     global bet, purse, blackjack, game
     if blackjack:
         bet = int(bet) * 1.50
@@ -214,7 +217,7 @@ def betting():
     if not playerWins:
         print("You lost $" + str(bet))
         purse = int(purse) - int(bet)
-    blackjack = False
+        blackjack = False
 
 
 def main():

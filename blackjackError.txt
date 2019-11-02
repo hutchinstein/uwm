@@ -1,0 +1,15 @@
+Dealer's hand: ['Seven of Hearts', 'Ten of Diamonds']
+Player's hand: ['King of Spades', 'Ace of Hearts']
+Dealer's score is:  17
+Player's score is:  21
+Would you like to (h)it or s(tay)? s
+
+Blackjack! You win!
+You won $18000.0
+Tie, dealer wins!
+You lost $18000.0
+Tie, dealer wins!
+You lost $18000.0
+Would you like to (c)ontinue playing or (q)uit?c
+You have $18000 in your purse
+How much would you like to bet?
