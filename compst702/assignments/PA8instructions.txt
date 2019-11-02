@@ -1,0 +1,5 @@
+Programming Assignment 8
+Due Monday by 11:59pm Points 10 Submitting a file upload Available until Nov 4 at 11:59pm
+Complete the posted PA8_incomplete.py program which helps user set a password. The password must have at least 8 characters with at least one lowercase, one uppercase and one digit character. The program should repetitively ask user for a password till the entered password meets the specifications. Then the program should ask the user to confirm the password; if it could not be confirmed then the whole process should start from the beginning. Complete the incomplete portions of the main function as indicated by the comments. Utilize the functions pre-written above the main function as appropriate.
+
+(You can discuss the assignment with others but what you submit must be your own work.)
