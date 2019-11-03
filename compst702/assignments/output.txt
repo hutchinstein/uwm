@@ -53,3 +53,31 @@ Games started at 2019-11-02 15:03:28 over.
 Now tracking games started at 2019-11-02 15:06:00
 Game 1 ended in a victory
 Games started at 2019-11-02 15:06:00 over. 
+
+Now tracking games started at 2019-11-03 16:55:11
+Game 1 ended in a victory
+Game 2 ended in a victory
+Game 3 ended in a victory
+Game 4 ended in a victory
+Game 5 ended in a victory
+Games started at 2019-11-03 16:55:11 over. 
+
+Now tracking games started at 2019-11-03 17:03:49
+Game 1 ended in a victory
+Games started at 2019-11-03 17:03:49 over. 
+
+Now tracking games started at 2019-11-03 17:05:28
+
+Now tracking games started at 2019-11-03 17:06:03
+Game 1 ended in a victorywith a score of 6
+
+Now tracking games started at 2019-11-03 17:07:04
+Game 1 ended in a victory with a score of 1
+Game 2 ended in a victory with a score of 1
+Game 3 ended in a victory with a score of 4
+Games started at 2019-11-03 17:07:04 over. 
+
+Now tracking games started at 2019-11-03 17:09:38
+Game 1 ended in a victory with a score of 2
+Game 2 ended in a loss
+Games started at 2019-11-03 17:09:38 over. 

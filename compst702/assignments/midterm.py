@@ -3,12 +3,14 @@
 # if their guess was too high or too low.  All guesses are printed     #
 # to the screen as well as the number of guesses remaining.  If the    #
 # user guesses the answer correctly the game ends.  A second function  #
-# is called once the game is over to write to a file the game number   #
-# currently being played and the result; victory or loss.  After each  #
-# game the user can choose to continue playing or quit.  To track each #
-# session of game play when a new series of games is started the       #
-# program writes to the score file the start time and end point of     #
-# the session.                                                         #
+# is called once the game is over to write to a file the game start    #
+# time currently being played and the result: victory or loss as well  #
+# as the score. The score is equal to the number of games remaining.   #
+# After each game the user can choose to continue playing or quit.     #
+# To track each session of game play when a new series of games is     #
+# started the program writes to the score file the start time and end  #
+# point of the session.  The program can be run by in command line or  #
+# by any other method used to initiate a python program.               #
 
 import random
 from datetime import datetime
@@ -53,12 +55,17 @@ def num_guess(game_number):
     else:
         outcome = "Loss"
         print("The secret number was", hidden_number)
-    score_keeping(outcome, game_number)
+    score = total_games - game_counter
+    score_keeping(outcome, game_number, score)
 
 
-def score_keeping(outcome, games_played):
+def score_keeping(outcome, games_played, score):
     file = open("output.txt", "a+")
-    output_string = "Game " + str(games_played) + " ended in a " + outcome.lower() + "\n"
+    if outcome == "Victory":
+        output_string = "Game " + str(games_played) + " ended in a " + outcome.lower() + \
+                        " with a score of " + str(score) + "\n"
+    else: 
+        output_string = "Game " + str(games_played) + " ended in a " + outcome.lower() + "\n"
     print(output_string)
     file.write(output_string)
     file.close()
