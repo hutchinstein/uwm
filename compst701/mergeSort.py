@@ -22,7 +22,6 @@ def merge(a, b):
         c.extend(b[b_idx:])
     else:
         c.extend(a[a_idx:])
-    print("merge: ", c)
     return c
 
 
@@ -34,10 +33,15 @@ def merge_sort(a):
     else:
         s = int((len(a) - 1) / 2)
     left, right = merge_sort(a[:s]), merge_sort(a[s:])
-    print('merge sort: ', left, right)
     return merge(left, right)
 
-a = create_array(10, 10)
-print(a)
-s = merge_sort(a)
-print(s)
+
+def main():
+	size = int(input("Enter the size of the number array: "))
+	max = int(input("Enter the maximum value of the number array: "))
+	a = create_array(size, max)
+	print(a)
+	s = merge_sort(a)
+	print(s)
+
+main()
