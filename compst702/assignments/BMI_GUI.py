@@ -74,8 +74,10 @@ def main():
     rec.draw(win)
 
     # wait for a mouse click
-    clickPointY = win.getMouse().getY()
-    clickPointX = win.getMouse().getX()
+    clickPoint = win.getMouse()
+    clickPointY = clickPoint.getY()
+    clickPointX = clickPoint.getY()
+    # clickPointY, clickPointX = win.getMouse().getY(), win.getMouse().getX()
     print("click!")
     print(clickPointY, clickPointX)
 
