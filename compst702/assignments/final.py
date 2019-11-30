@@ -60,8 +60,9 @@ card_value = {
 }
 
 
-# Player definition #
 class Player:
+    """Player Class.  First name and last name are input by user for new players.
+    All new players default wins, losses and purse is set to 0"""
     def __init__(self, f_name, l_name, wins, losses, purse):
         self.f_name = f_name
         self.l_name = l_name
@@ -70,8 +71,8 @@ class Player:
         self.purse = purse
 
 
-# Get player name
 def get_fname():
+    """Get player's first name"""
     fname = input("Enter your first name: ")
     fname = fname.strip()
     fname = fname.capitalize()
@@ -79,17 +80,20 @@ def get_fname():
 
 
 def get_lname():
+    """Get player's last name"""
     lname = input("Enter your last name: ")
     lname = lname.strip()
     lname = lname.capitalize()
     return lname
 
 
-# Game functions #
+"""
+Start in-game functions
+"""
 
 
-# Start game is done before main loop to initialize the player
 def start_game():
+    """Start game is done before main loop to initialize the player"""
     global player
     player = Player(get_fname(), get_lname(), 0, 0, 0)
     print("Hello", player.f_name + ", welcome to Blackjack the Game. Good luck!")
@@ -103,6 +107,8 @@ def start_game():
 
 
 def create_deck():
+    """Each game starts with a new deck.  The card values and suits are stored in separate text files.
+    A nested for loop generates all card combinations and appends to deck list"""
     suit_list = open("suits.txt", "r")
     card_list = open("cards.txt", "r")
     for i in suit_list:
@@ -120,6 +126,7 @@ def create_deck():
 
 
 def shuffle(my_deck):
+    """This function swaps a card at location i with a card at a random location between 0 & 51"""
     for i in range(0, len(my_deck)):
         rand_num = random.randint(0, 51)
         rand_card = deck[rand_num]
@@ -129,17 +136,22 @@ def shuffle(my_deck):
 
 
 def deal():
+    """Deals cards one at a time to the player then dealer"""
     for i in range(0, 2):
         player_hand.append(deck.pop())
         dealer_hand.append(deck.pop())
 
 
 def hit(hand):
+    """Removes a card from the deck and adds it to the dealer or players hand"""
     hand.append(deck.pop())
     get_score(hand)
 
 
 def get_score(hand):
+    """Gets the value of the hand.
+    If the value of a hand with an Ace in it will exceed 21 the value of the Ace is 1, otherwise it is 11
+    """
     ace = False
     score = 0
     for i in hand:
@@ -148,12 +160,14 @@ def get_score(hand):
             ace = True
         value = card_value[card]
         score = score + value
+    # Logic to handle Aces
     if ace and score + 10 <= 21:
         score = score + 10
     return score
 
 
 def display_status():
+    """Uses get_score() function and displays current scores to the screen"""
     global playing
     if playing:
         print("Dealer's hand: ", dealer_hand, "\nPlayer's Hand: ", player_hand)
@@ -164,8 +178,9 @@ def display_status():
 
 
 def game_action(player_score, dealer_score):
+    """After scores are displayed, players have the option to hit or stay.
+    This handles player interaction.  Players are able to hit as long as they have 21 or fewer points."""
     global playing, player_action
-    # hitting = True
     if player_score <= 21 and player_action:
         try:
             response = input("Would you like to (h)it or (s)tay? ")
@@ -174,7 +189,6 @@ def game_action(player_score, dealer_score):
                 hit(player_hand)
             elif response == 's':
                 dealer_action(player_score, dealer_score)
-                # hitting = False
                 playing = False
         except ValueError:
             print("Please enter a valid response")
@@ -186,27 +200,38 @@ def game_action(player_score, dealer_score):
 
     display_status()
     if not player_action:
-        game_result(player_score, dealer_score)
+        game_result()
 
 
-def game_result(player_score, dealer_score):
+def game_result():
+    """Calculates who wins the game and displays it to the screen."""
     global playing
-    print(player_score, dealer_score, "Game result")
+    player_score, dealer_score = get_score(player_hand), get_score(dealer_hand)
+    print(player_score, dealer_score)
     playing = False
 
 
 def dealer_action(player_score, dealer_score):
+    """After the player is done hitting the dealer is allowed to hit().
+    This allows the dealer to hit() multiple times to get their score
+    as close to 21 as possible."""
     global player_action
     player_action = False
     if 21 > dealer_score <= player_score:
         hit(dealer_hand)
-
     display_status()
+    # get score used to update the score each time function is run
     if 21 > get_score(dealer_hand) <= player_score:
+        # dealer_action() is called recursively to allow for the dealer to hit multiple times
         dealer_action(player_score, dealer_score)
 
 
 def main():
+    """The main function of the program.  The player is initialized outside of this so they are not overwritten
+    each time the function is called.
+    First, the cards are dealt and initial scores are displayed.
+    The game loop is then started by calling game_action().
+    Finally, main() is called recursively if the player wants to continue to play."""
     # Initialize game #
     global playing, player_hand, dealer_hand, player_action
 
@@ -223,6 +248,7 @@ def main():
         playing = True
         player_action = True
         player_hand, dealer_hand = [], []
+        # Recursive call to main() #
         main()
     else:
         print("Goodbye,", player.f_name)
