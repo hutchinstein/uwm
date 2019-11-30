@@ -33,6 +33,7 @@ Nice to have:
 # Global variables #
 playing = True
 ace = False
+player_action = True
 player = ""
 suits = []
 cards = []
@@ -133,9 +134,9 @@ def deal():
         dealer_hand.append(deck.pop())
 
 
-def hit():
-    player_hand.append(deck.pop())
-    get_score(player_hand)
+def hit(hand):
+    hand.append(deck.pop())
+    get_score(hand)
 
 
 def get_score(hand):
@@ -162,28 +163,52 @@ def display_status():
         print("Player's Score: ", player_score)
 
 
-def game_status(player_score, dealer_score):
-    global playing
-    if player_score <= 21:
+def game_action(player_score, dealer_score):
+    global playing, player_action
+    # hitting = True
+    if player_score <= 21 and player_action:
         try:
             response = input("Would you like to (h)it or (s)tay? ")
             response = response.lower()
             if response == 'h':
-                hit()
+                hit(player_hand)
             elif response == 's':
-                print("Need to write some staying code...")
+                dealer_action(player_score, dealer_score)
+                # hitting = False
                 playing = False
         except ValueError:
             print("Please enter a valid response")
     elif player_score > 21:
         print("Busted!")
         playing = False
+    if dealer_score < 21 and not player_action:
+        dealer_action(player_score, dealer_score)
+
     display_status()
+    if not player_action:
+        game_result(player_score, dealer_score)
+
+
+def game_result(player_score, dealer_score):
+    global playing
+    print(player_score, dealer_score, "Game result")
+    playing = False
+
+
+def dealer_action(player_score, dealer_score):
+    global player_action
+    player_action = False
+    if 21 > dealer_score <= player_score:
+        hit(dealer_hand)
+
+    display_status()
+    if 21 > get_score(dealer_hand) <= player_score:
+        dealer_action(player_score, dealer_score)
 
 
 def main():
     # Initialize game #
-    global playing, player_hand, dealer_hand
+    global playing, player_hand, dealer_hand, player_action
 
     # Start first hand #
     deal()
@@ -191,15 +216,16 @@ def main():
 
     # Start game loop #
     while playing:
-        game_status(get_score(player_hand), get_score(dealer_hand))
+        game_action(get_score(player_hand), get_score(dealer_hand))
 
     player_continue = input("Would you like to play another game? (y/n) ")
     if player_continue == 'y':
         playing = True
+        player_action = True
         player_hand, dealer_hand = [], []
         main()
     else:
-        print("Good bye", player.f_name)
+        print("Goodbye,", player.f_name)
 
 
 start_game()
