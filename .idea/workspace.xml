@@ -2,18 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fee345e7-95b2-4015-a41f-c752b4852cc4" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compst702/assignments/output.txt" afterPath="$PROJECT_DIR$/compst702/assignments/output.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/compst702/assignments/sandbox.py" afterPath="$PROJECT_DIR$/compst702/assignments/sandbox.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/recursion.py" afterPath="$PROJECT_DIR$/recursion.py" />
+=======
+      <change afterPath="$PROJECT_DIR$/compst702/assignments/final.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uwm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uwm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/compst702/assignments/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/compst702/assignments/output.txt" afterDir="false" />
+>>>>>>> e9df2642f5757e052ada77aed004e2cf06d300c2
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -119,6 +129,8 @@
       </file>
     </leaf>
   </component>
+=======
+>>>>>>> e9df2642f5757e052ada77aed004e2cf06d300c2
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -139,6 +151,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -258,22 +271,26 @@
       </pane>
     </panes>
   </component>
+=======
+  <component name="ProjectId" id="1UB8sPue3ozwpuRu3LJ3cBL0APZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+>>>>>>> e9df2642f5757e052ada77aed004e2cf06d300c2
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\JohnD\PycharmProjects\uwm\compst702\assignments" />
-      <recent name="C:\Users\JohnD\PycharmProjects\uwm\Games\Racing" />
-      <recent name="C:\Users\JohnD\PycharmProjects\uwm\Games" />
-      <recent name="C:\Users\JohnD\PycharmProjects\uwm\compst701" />
-      <recent name="C:\Users\JohnD\PycharmProjects\uwm\compst702\assignments\input_output" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\JohnD\PycharmProjects\uwm\Games\Racing" />
       <recent name="C:\Users\JohnD\PycharmProjects\uwm\Games" />
       <recent name="C:\Users\JohnD\PycharmProjects\uwm" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/compst702/assignments" />
+      <recent name="C:\Users\JohnD\PycharmProjects\uwm\compst702\assignments" />
+      <recent name="C:\Users\JohnD\PycharmProjects\uwm\Games\Racing" />
+      <recent name="C:\Users\JohnD\PycharmProjects\uwm\Games" />
+      <recent name="C:\Users\JohnD\PycharmProjects\uwm\compst701" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -288,8 +305,14 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Python.sandbox">
     <configuration default="false" name="dictionary_loop" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+  <component name="RunManager" selected="Python.final">
+    <configuration name="BMI_GUI" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="uwm" />
+>>>>>>> e9df2642f5757e052ada77aed004e2cf06d300c2
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -300,13 +323,21 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+<<<<<<< HEAD
       <module name="uwm" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/compst702/assignments/dictionary_loop.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/compst702/assignments/BMI_GUI.py" />
+>>>>>>> e9df2642f5757e052ada77aed004e2cf06d300c2
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
-      <method />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration default="false" name="recursion" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -326,24 +357,44 @@
       <method />
     </configuration>
     <configuration default="false" name="baseToBinary" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+    <configuration name="MSDie" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="uwm" />
+>>>>>>> e9df2642f5757e052ada77aed004e2cf06d300c2
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+<<<<<<< HEAD
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/compst701" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="uwm" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/compst701/baseToBinary.py" />
+=======
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/compst702/assignments" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/compst702/assignments/MSDie.py" />
+>>>>>>> e9df2642f5757e052ada77aed004e2cf06d300c2
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
-      <method />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <configuration default="false" name="midterm" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+    <configuration name="dictionary_loop" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="uwm" />
+>>>>>>> e9df2642f5757e052ada77aed004e2cf06d300c2
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -354,95 +405,86 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+<<<<<<< HEAD
       <module name="uwm" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/compst702/assignments/midterm.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/compst702/assignments/dictionary_loop.py" />
+>>>>>>> e9df2642f5757e052ada77aed004e2cf06d300c2
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+<<<<<<< HEAD
+    <configuration default="false" name="sandbox" type="PythonConfigurationType" factoryName="Python" temporary="true">
+=======
+    <configuration name="final" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="uwm" />
+>>>>>>> e9df2642f5757e052ada77aed004e2cf06d300c2
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/compst702/assignments" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+<<<<<<< HEAD
+      <module name="uwm" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/compst702/assignments/sandbox.py" />
+=======
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/compst702/assignments/final.py" />
+>>>>>>> e9df2642f5757e052ada77aed004e2cf06d300c2
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="midterm" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="uwm" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/compst702/assignments" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/compst702/assignments/midterm.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="sandbox" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/compst702/assignments" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="uwm" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/compst702/assignments/sandbox.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="uwm" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="uwm" />
-      <method />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="uwm" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
+      <module name="uwm" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs />
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="uwm" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;.&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method />
+      <method v="2" />
     </configuration>
+<<<<<<< HEAD
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.dictionary_loop" />
       <item index="1" class="java.lang.String" itemvalue="Python.recursion" />
@@ -457,11 +499,24 @@
         <item index="2" class="java.lang.String" itemvalue="Python.baseToBinary" />
         <item index="3" class="java.lang.String" itemvalue="Python.recursion" />
         <item index="4" class="java.lang.String" itemvalue="Python.dictionary_loop" />
+=======
+    <list>
+      <item itemvalue="Python.BMI_GUI" />
+      <item itemvalue="Python.dictionary_loop" />
+      <item itemvalue="Python.MSDie" />
+      <item itemvalue="Python.midterm" />
+      <item itemvalue="Python.final" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.final" />
+        <item itemvalue="Python.midterm" />
+        <item itemvalue="Python.MSDie" />
+        <item itemvalue="Python.dictionary_loop" />
+        <item itemvalue="Python.BMI_GUI" />
+>>>>>>> e9df2642f5757e052ada77aed004e2cf06d300c2
       </list>
     </recent_temporary>
-  </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -476,6 +531,7 @@
     </task>
     <servers />
   </component>
+<<<<<<< HEAD
   <component name="ToolWindowManager">
     <frame x="-968" y="78" width="976" height="1056" extended-state="0" />
     <layout>
@@ -684,5 +740,19 @@
         </state>
       </provider>
     </entry>
+=======
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+>>>>>>> e9df2642f5757e052ada77aed004e2cf06d300c2
   </component>
 </project>
