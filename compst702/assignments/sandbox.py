@@ -1,19 +1,7 @@
-class foo :
-    def __init__(self, v):
-        self.value = v
-    def change(self,v):
-        value = v
-    def getValue(self):
-        return self.value
+import re
 
-def main() :
-
-    x = foo(1)
-
-    x.change(10)
-
-    x.change(100)
-
-    print(x.getValue())
-
-main()
+myre = "[^a-z1-5]"
+if re.search(myre, "abc1234"):
+    print("True")
+else:
+    print("False")
