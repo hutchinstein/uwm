@@ -16,17 +16,16 @@ classes as well as comments at appropriate places in the program.
 '''
 
 Things to do:
-1. In game betting
-2. Pay out after each game
+1. In game betting - Done
+2. Pay out after each game - Done
+2.a Need to add logic for all game scenarios 
 3. Allow player to add more money to their purse if they run out
 4. Write to some out file
-5. Documentation: "module documentation (three double-quote comments) for functions and
-classes as well as comments at appropriate places in the program."
+5. Display hands as a string instead of a list
 6. Email professor, is this non-trivial enough???
 
 Nice to have:
-1. Save list of players and their attributes to a text file
-    a. allow new players to add themselves to the list
+
 2. GUI?
 
 '''
@@ -35,6 +34,8 @@ Nice to have:
 playing = True
 ace = False
 player_action = True
+victory = False
+bet = 0
 player = ""
 suits = []
 cards = []
@@ -127,25 +128,36 @@ def start_game():
     # Create a new player #
     if new_player:
         player = Player(get_fname(), get_lname(), 0, 0, 0)
-        a = open("players.txt", "r")
-        # Checks if first name and last name entered by user
-        for i in a:
-            if i.split(',')[0].strip() == player.f_name.strip() and i.split(',')[1].strip() == player.l_name.strip():
-                response = input("This player already exists, would you like to delete the old player? (y/n)")
-                if response.lower() == "y":
-                    continue
-                elif response.lower() == 'n':
-                    start_game()
+        check_for_existing_user()
         try:
-            purse = int(input("How much would you like to add to your purse $"))
+            purse = int(input("Old record deleted, new player created!\nHow much "
+                              "would you like to add to your purse $"))
         except ValueError:
             print("Please enter a number ")
         player.purse = purse
+
     else:
         player = Player(fname, lname, wins, losses, purse)
-    print("Hello", player.f_name + ", welcome to Blackjack the Game. Good luck!")
+    print("\nHello", player.f_name + ", welcome to Blackjack the Game. Good luck!\n")
     create_deck()
     shuffle(deck)
+
+
+def check_for_existing_user():
+    """Checks if first name and last name entered by user match name on the list
+    User has the option to delete or try again"""
+    a = open("players.txt", "r")
+    for i in a:
+        if i.split(',')[0].strip() == player.f_name.strip() and i.split(',')[1].strip() == player.l_name.strip():
+            response = input("This player already exists, would you like to delete the old player? (y/n)")
+            if response.lower() == "y":
+                continue
+            elif response.lower() == 'n':
+                start_game()
+            else:
+                print("Invalid selection, please try again")
+                check_for_existing_user()
+    a.close()
 
 
 def create_deck():
@@ -194,7 +206,7 @@ def get_score(hand):
     """Gets the value of the hand.
     If the value of a hand with an Ace in it will exceed 21 the value of the Ace is 1, otherwise it is 11
     """
-    # Final dealer score not calculating correctly
+    global ace
     ace = False
     score = 0
     for i in hand:
@@ -202,9 +214,8 @@ def get_score(hand):
         if card == "Ace":
             ace = True
         value = card_value[card]
-        # print(card, value)
         score = score + value
-    # Logic to handle Aces
+    # Logic to handle aces.  10 is added to score if it will not cause the player to bust #
     if ace and score + 10 <= 21:
         score = score + 10
     return score
@@ -238,7 +249,8 @@ def game_action(player_score, dealer_score):
             print("Please enter a valid response")
     elif player_score > 21:
         print("Busted!")
-        playing = False
+        game_result()
+        # playing = False
     if dealer_score < 21 and not player_action:
         dealer_action(player_score, dealer_score)
 
@@ -252,6 +264,7 @@ def game_result():
     global playing
     player_score, dealer_score = get_score(player_hand), get_score(dealer_hand)
     print(player_score, dealer_score)
+    update_player_purse()
     playing = False
 
 
@@ -272,6 +285,30 @@ def dealer_action(player_score, dealer_score):
         dealer_action(player_score, dealer_score)
 
 
+def place_bet():
+    """Takes in input from user to declare their bet.  If they do not have enough money in their purse
+    they are prompted to try again."""
+    global bet
+    bet = int(input("How much do you want to bet?"))
+    if bet > int(player.purse):
+        print("You don't have enough in your purse! \nTry again")
+        place_bet()
+    else:
+        return bet
+
+
+def update_player_purse():
+    """Called by game_result() to update the player's purse depending on the outcome of the game"""
+    global victory, bet
+    purse = int(player.purse)
+    if victory:
+        purse += int(bet)
+    else:
+        purse -= bet
+    player.purse = purse
+    print("Your current purse is: ", player.purse)
+
+
 def main():
     """The main function of the program.  The player is initialized outside of this so they are not overwritten
     each time the function is called.
@@ -282,6 +319,7 @@ def main():
     global playing, player_hand, dealer_hand, player_action
 
     # Start first hand #
+    place_bet()
     deal()
     display_status()
 
