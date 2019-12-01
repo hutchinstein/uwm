@@ -8,7 +8,7 @@ something available on the Internet or in a book. The program must satisfy the f
 It must define and appropriately use at least one class. - Done
 It must use at least two meaningful functions besides main function and the class methods. - Done
 Its input and output must be through files (some user input, or output to screen is ok in addition, if needed) 
-It must use at least one list or one dictionary.
+It must use at least one list or one dictionary. - Done 
 The program must be well documented with module documentation (three double-quote comments) for functions and
 classes as well as comments at appropriate places in the program.
 '''
@@ -22,6 +22,7 @@ Things to do:
 4. Write to some out file
 5. Documentation: "module documentation (three double-quote comments) for functions and
 classes as well as comments at appropriate places in the program."
+6. Email professor, is this non-trivial enough???
 
 Nice to have:
 1. Save list of players and their attributes to a text file
