@@ -1,2 +1,2 @@
-John, Hutchinson, 0, 0
-Blair, Benes, 0, 0
+John, Hutchinson, 0, 0, 0
+Blair, Benes, 0, 0, 0

@@ -94,17 +94,58 @@ Start in-game functions
 
 
 def start_game():
-    """Start game is done before main loop to initialize the player"""
+    """Start game is done before main loop to initialize the player.
+    Players are able to save their name, wins, losses and purse, during
+    this process they can choose to start with a saved character or
+    start new."""
     global player
-    player = Player(get_fname(), get_lname(), 0, 0, 0)
+    new_player = True
+    # Display list of saved names #
+    a = open("players.txt", "r")
+    counter = 1
+    print("Select your player:")
+    for i in a:
+        print(str(counter) + ".", i.strip().split(',')[0])
+        counter += 1
+    print(str(counter) + ". New Player")
+    # Take in user selection #
+    player = int(input("Enter your selection: "))
+    a.close()
+    # Get player information #
+    a = open("players.txt", "r")
+    counter = 1
+    for i in a:
+        if counter == player:
+            new_player = False
+            fname = i.strip().split(',')[0]
+            lname = i.strip().split(',')[1]
+            wins = i.strip().split(',')[2]
+            losses = i.strip().split(',')[3]
+            purse = i.strip().split(',')[4]
+        counter += 1
+    a.close()
+    # Create a new player #
+    if new_player:
+        player = Player(get_fname(), get_lname(), 0, 0, 0)
+        a = open("players.txt", "r")
+        # Checks if first name and last name entered by user
+        for i in a:
+            if i.split(',')[0].strip() == player.f_name.strip() and i.split(',')[1].strip() == player.l_name.strip():
+                response = input("This player already exists, would you like to delete the old player? (y/n)")
+                if response.lower() == "y":
+                    continue
+                elif response.lower() == 'n':
+                    start_game()
+        try:
+            purse = int(input("How much would you like to add to your purse $"))
+        except ValueError:
+            print("Please enter a number ")
+        player.purse = purse
+    else:
+        player = Player(fname, lname, wins, losses, purse)
     print("Hello", player.f_name + ", welcome to Blackjack the Game. Good luck!")
     create_deck()
     shuffle(deck)
-    try:
-        purse = int(input("How much would you like to add to your purse $"))
-    except ValueError:
-        print("Please enter a number ")
-    player.purse = purse
 
 
 def create_deck():
@@ -153,6 +194,7 @@ def get_score(hand):
     """Gets the value of the hand.
     If the value of a hand with an Ace in it will exceed 21 the value of the Ace is 1, otherwise it is 11
     """
+    # Final dealer score not calculating correctly
     ace = False
     score = 0
     for i in hand:
@@ -160,6 +202,7 @@ def get_score(hand):
         if card == "Ace":
             ace = True
         value = card_value[card]
+        # print(card, value)
         score = score + value
     # Logic to handle Aces
     if ace and score + 10 <= 21:
@@ -216,9 +259,11 @@ def dealer_action(player_score, dealer_score):
     """After the player is done hitting the dealer is allowed to hit().
     This allows the dealer to hit() multiple times to get their score
     as close to 21 as possible."""
+    # TODO remove dealer_score
     global player_action
     player_action = False
-    if 21 > dealer_score <= player_score:
+    if 21 > get_score(dealer_hand) <= player_score:
+        print('dealer hit')
         hit(dealer_hand)
     display_status()
     # get score used to update the score each time function is run
