@@ -19,8 +19,8 @@ classes as well as comments at appropriate places in the program.
 Things to do:
 1. In game betting - Done
 2. Pay out after each game - Done
-2.a Need to add logic for all game scenarios 
-3. Allow player to add more money to their purse if they run out
+2.a Need to add logic for all game scenarios - Done
+3. Allow player to add more money to their purse if they run out - Done
 4. Write to some out file
 5. Display hands as a string instead of a list
 6. Email professor, is this non-trivial enough???
@@ -36,6 +36,7 @@ playing = True
 ace = False
 player_action = True
 blackjack = False
+new_player = True
 # victory = False
 bet = 0
 player = ""
@@ -102,7 +103,7 @@ def start_game():
     Players are able to save their name, wins, losses and purse, during
     this process they can choose to start with a saved character or
     start new."""
-    global player
+    global player, new_player
     new_player = True
     # Display list of saved names #
     a = open("players.txt", "r")
@@ -150,11 +151,13 @@ def start_game():
 def check_for_existing_user():
     """Checks if first name and last name entered by user match name on the list
     User has the option to delete or try again"""
+    global new_player
     a = open("players.txt", "r")
     for i in a:
         if i.split(',')[0].strip() == player.f_name.strip() and i.split(',')[1].strip() == player.l_name.strip():
             response = input("This player already exists, would you like to delete the old player? (y/n)")
             if response.lower() == "y":
+                new_player = False
                 continue
             elif response.lower() == 'n':
                 start_game()
@@ -313,6 +316,11 @@ def update_player_purse(result):
 
 
 def scoring():
+    """Scoring compares the player's and dealer's score and determines the winner.
+    The goal is to get to 21 without going over.
+    If the dealer and player tie, the dealer wins.
+    If the player gets 21 and the dealer does not they earn 1.5 times the amount they bet.
+    In all other cases the amount earned/lost is equal to the bet made"""
     result = ""
     global blackjack
     # blackjack = False
@@ -371,8 +379,34 @@ def place_bet():
 
 def add_to_purse():
     contribution = int(input("How much would you like to add to your purse? "))
-    player.purse = player.purse + contribution
+    player.purse = str(int(player.purse) + int(contribution))
     place_bet()
+
+
+def write_to_file():
+    global new_player
+    if new_player:
+        print("New player out debug")
+        file = open("players.txt", "a")
+        out_string = "\n" + player.f_name + ", " + player.l_name + ", " + str(player.wins) + \
+                     ", " + str(player.losses) + ", " + str(player.purse)
+        file.write(out_string)
+        file.close
+        print(out_string)
+    else:
+        print("Old player out debug")
+        in_file = open("players.txt", "r")
+        player_out = ""
+        for i in in_file:
+            if i.split(",")[0] == player.f_name:
+                player_out = player_out + player.f_name + ", " + player.l_name + ", " + str(player.wins) + \
+                     ", " + str(player.losses) + ", " + str(player.purse) + "\n"
+            else:
+                player_out = player_out + i
+        in_file.close()
+        out_file = open("players.txt", "w")
+        out_file.write(player_out)
+
 
 
 def main():
@@ -403,8 +437,9 @@ def main():
         # Recursive call to main() #
         main()
     else:
+        write_to_file()
         print("Goodbye,", player.f_name)
 
-
+# write_to_file()
 start_game()
 main()
