@@ -272,12 +272,15 @@ def dealer_action(player_score, dealer_score):
     # TODO remove dealer_score from parameters
     global player_action
     player_action = False
+
     if 21 > get_score(dealer_hand) <= player_score and get_score(dealer_hand) != player_score:
         print('dealer hit')
         hit(dealer_hand)
     display_status()
 
-    if 21 > get_score(dealer_hand) <= player_score:
+    if get_score(dealer_hand) == player_score:
+        display_status()
+    elif 21 > get_score(dealer_hand) <= player_score:
         # dealer_action() is called recursively to allow for the dealer to hit multiple times
         dealer_action(player_score, dealer_score)
 
@@ -304,8 +307,9 @@ def update_player_purse(result):
         purse -= bet
         player.losses = int(player.losses) + 1
     player.purse = purse
-    print("Your current purse is: ", player.purse)
+    print("Your current purse is: ", int(player.purse))
     print("Wins vs. losses = ", player.wins, player.losses)
+    blackjack = False
 
 
 def scoring():
@@ -314,20 +318,22 @@ def scoring():
     # blackjack = False
     dealer_score = get_score(dealer_hand)
     player_score = get_score(player_hand)
-    # if dealer_score > 21 and player_score < 21:
-    if dealer_score > 21 <= player_score:
+    if player_score < 21 < dealer_score:
         print("You win! 1")
         result = "victory"
     elif player_score > 21:
-        print("Busted!  You loose 2")
+        print("Busted!  You lose! 2")
         result = "loss"
     elif player_score > 21 < dealer_score:
         result = "victory"
         print("You win! 3")
+    elif dealer_score == 21:
+        print("Dealer has blackjack, you lose!")
+        result = "loss"
     elif dealer_score == player_score:
         result = "loss"
         print("You lose! 4")
-    elif dealer_score and player_score < 21 and dealer_score > player_score:
+    elif dealer_score < 21 > player_score < dealer_score:
         result = "loss"
         print("You lose! 5")
     elif player_score == 21 and dealer_score > 21:
