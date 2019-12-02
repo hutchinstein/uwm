@@ -1,4 +1,5 @@
 import random
+
 '''
 In this final project, you will come up with a programming task for which you will write your own program.
 It should be a purposeful and non-trivial program, bigger than any programming assignment. But it should
@@ -34,7 +35,8 @@ Nice to have:
 playing = True
 ace = False
 player_action = True
-victory = False
+blackjack = False
+# victory = False
 bet = 0
 player = ""
 suits = []
@@ -65,6 +67,7 @@ card_value = {
 class Player:
     """Player Class.  First name and last name are input by user for new players.
     All new players default wins, losses and purse is set to 0"""
+
     def __init__(self, f_name, l_name, wins, losses, purse):
         self.f_name = f_name
         self.l_name = l_name
@@ -129,8 +132,9 @@ def start_game():
     if new_player:
         player = Player(get_fname(), get_lname(), 0, 0, 0)
         check_for_existing_user()
+        #
         try:
-            purse = int(input("Old record deleted, new player created!\nHow much "
+            purse = int(input("New player created!\nHow much "
                               "would you like to add to your purse $"))
         except ValueError:
             print("Please enter a number ")
@@ -139,8 +143,8 @@ def start_game():
     else:
         player = Player(fname, lname, wins, losses, purse)
     print("\nHello", player.f_name + ", welcome to Blackjack the Game. Good luck!\n")
-    create_deck()
-    shuffle(deck)
+    # create_deck()
+    # shuffle(deck)
 
 
 def check_for_existing_user():
@@ -248,9 +252,11 @@ def game_action(player_score, dealer_score):
         except ValueError:
             print("Please enter a valid response")
     elif player_score > 21:
-        print("Busted!")
+        # print("Busted!")
         game_result()
         # playing = False
+    # TODO move this to scoring()
+    # TODO
     if dealer_score < 21 and not player_action:
         dealer_action(player_score, dealer_score)
 
@@ -259,54 +265,98 @@ def game_action(player_score, dealer_score):
         game_result()
 
 
-def game_result():
-    """Calculates who wins the game and displays it to the screen."""
-    global playing
-    player_score, dealer_score = get_score(player_hand), get_score(dealer_hand)
-    print(player_score, dealer_score)
-    update_player_purse()
-    playing = False
-
-
 def dealer_action(player_score, dealer_score):
     """After the player is done hitting the dealer is allowed to hit().
     This allows the dealer to hit() multiple times to get their score
     as close to 21 as possible."""
-    # TODO remove dealer_score
+    # TODO remove dealer_score from parameters
     global player_action
     player_action = False
     if 21 > get_score(dealer_hand) <= player_score:
         print('dealer hit')
         hit(dealer_hand)
     display_status()
-    # get score used to update the score each time function is run
+
     if 21 > get_score(dealer_hand) <= player_score:
         # dealer_action() is called recursively to allow for the dealer to hit multiple times
         dealer_action(player_score, dealer_score)
+
+
+def game_result():
+    """Calculates who wins the game and displays it to the screen."""
+    global playing
+    player_score, dealer_score = get_score(player_hand), get_score(dealer_hand)
+    print(player_score, dealer_score)
+    update_player_purse(scoring())
+    playing = False
+
+
+def update_player_purse(result):
+    """Called by game_result() to update the player's purse depending on the outcome of the game"""
+    global bet, blackjack
+    purse = int(player.purse)
+    if blackjack:
+        bet = bet * 1.5
+    if result == "victory":
+        purse += int(bet)
+        player.wins = int(player.wins) + 1
+    else:
+        purse -= bet
+        player.wins = int(player.wins) - 1
+    player.purse = purse
+    print("Your current purse is: ", player.purse)
+    print("Wins vs. losses = ", player.wins, player.losses)
+
+
+def scoring():
+    result = ""
+    global blackjack
+    # blackjack = False
+    dealer_score = get_score(dealer_hand)
+    player_score = get_score(player_hand)
+    if dealer_score > player_score < 21:
+        print("You win!")
+        result = "victory"
+    elif player_score > 21:
+        print("Busted!  You loose")
+        result = "loss"
+    elif player_score > 21 < dealer_score :
+        result = "victory"
+    elif dealer_score == player_score:
+        result = "loss"
+    elif player_score == 21 and dealer_score > 21:
+        print("Blackjack!  You win!")
+        blackjack = True
+        result = "victory"
+    else:
+        print("Debugging scoring() \ndealer score", dealer_score, "\n"
+                                                                  "player score", player_score)
+
+    return result
 
 
 def place_bet():
     """Takes in input from user to declare their bet.  If they do not have enough money in their purse
     they are prompted to try again."""
     global bet
-    bet = int(input("How much do you want to bet?"))
+    bet = int(input("How much do you want to bet? "))
     if bet > int(player.purse):
-        print("You don't have enough in your purse! \nTry again")
-        place_bet()
+        response = input("You don't have enough in your purse! \nWould you like to add more? (y/n)")
+        if response.lower() == 'y':
+            add_to_purse()
+        elif response.lower() == 'n':
+            place_bet()
+        else:
+            print("Did not recognize your request")
+            place_bet()
     else:
         return bet
 
 
-def update_player_purse():
-    """Called by game_result() to update the player's purse depending on the outcome of the game"""
-    global victory, bet
-    purse = int(player.purse)
-    if victory:
-        purse += int(bet)
-    else:
-        purse -= bet
-    player.purse = purse
-    print("Your current purse is: ", player.purse)
+def add_to_purse():
+    contribution = int(input("How much would you like to add to your purse? "))
+    player.purse = player.purse + contribution
+    place_bet()
 
 
 def main():
@@ -319,6 +369,8 @@ def main():
     global playing, player_hand, dealer_hand, player_action
 
     # Start first hand #
+    create_deck()
+    shuffle(deck)
     place_bet()
     deal()
     display_status()
