@@ -272,7 +272,7 @@ def dealer_action(player_score, dealer_score):
     # TODO remove dealer_score from parameters
     global player_action
     player_action = False
-    if 21 > get_score(dealer_hand) <= player_score:
+    if 21 > get_score(dealer_hand) <= player_score and get_score(dealer_hand) != player_score:
         print('dealer hit')
         hit(dealer_hand)
     display_status()
@@ -302,7 +302,7 @@ def update_player_purse(result):
         player.wins = int(player.wins) + 1
     else:
         purse -= bet
-        player.wins = int(player.wins) - 1
+        player.losses = int(player.losses) + 1
     player.purse = purse
     print("Your current purse is: ", player.purse)
     print("Wins vs. losses = ", player.wins, player.losses)
@@ -314,18 +314,24 @@ def scoring():
     # blackjack = False
     dealer_score = get_score(dealer_hand)
     player_score = get_score(player_hand)
-    if dealer_score > player_score < 21:
-        print("You win!")
+    # if dealer_score > 21 and player_score < 21:
+    if dealer_score > 21 <= player_score:
+        print("You win! 1")
         result = "victory"
     elif player_score > 21:
-        print("Busted!  You loose")
+        print("Busted!  You loose 2")
         result = "loss"
-    elif player_score > 21 < dealer_score :
+    elif player_score > 21 < dealer_score:
         result = "victory"
+        print("You win! 3")
     elif dealer_score == player_score:
         result = "loss"
+        print("You lose! 4")
+    elif dealer_score and player_score < 21 and dealer_score > player_score:
+        result = "loss"
+        print("You lose! 5")
     elif player_score == 21 and dealer_score > 21:
-        print("Blackjack!  You win!")
+        print("Blackjack!  You win! 6")
         blackjack = True
         result = "victory"
     else:
@@ -339,7 +345,11 @@ def place_bet():
     """Takes in input from user to declare their bet.  If they do not have enough money in their purse
     they are prompted to try again."""
     global bet
-    bet = int(input("How much do you want to bet? "))
+    try:
+        bet = int(input("How much do you want to bet? "))
+    except ValueError:
+        print("Please enter an integer")
+        place_bet()
     if bet > int(player.purse):
         response = input("You don't have enough in your purse! \nWould you like to add more? (y/n)")
         if response.lower() == 'y':
