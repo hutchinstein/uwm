@@ -1,5 +1,10 @@
 import random
 
+# TODO fill out README.txt that explains:
+# TODO  > The programming task and its specifications
+# TODO  > Your programming design (e.g. what part of the program does what)
+# TODO  > How to run your program
+
 """
 Initialize variables
 """
@@ -90,7 +95,10 @@ def start_game():
 
     # Generate list of players #
     for i in a:
-        print(str(counter) + ".", i.strip().split(',')[0])
+        if i.strip().split(',')[0] == "":
+            continue
+        else:
+            print(str(counter) + ".", i.strip().split(',')[0])
         counter += 1
     print(str(counter) + ". New Player")
 
@@ -102,13 +110,16 @@ def start_game():
     a = open("players.txt", "r")
     counter = 1
     for i in a:
-        if counter == player:
-            new_player = False
-            fname = i.strip().split(',')[0]
-            lname = i.strip().split(',')[1]
-            wins = i.strip().split(',')[2]
-            losses = i.strip().split(',')[3]
-            purse = i.strip().split(',')[4]
+        if i.strip().split(',')[0] == "":
+            continue
+        else:
+            if counter == player:
+                new_player = False
+                fname = i.strip().split(',')[0]
+                lname = i.strip().split(',')[1]
+                wins = i.strip().split(',')[2]
+                losses = i.strip().split(',')[3]
+                purse = i.strip().split(',')[4]
         counter += 1
     a.close()
 
