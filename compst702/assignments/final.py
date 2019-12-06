@@ -1,7 +1,5 @@
 import random
 
-# TODO offer to update purse when it reaches $0
-
 """
 Initialize variables
 """
@@ -13,7 +11,6 @@ player_action = True
 blackjack = False
 new_player = True
 
-# bet = 0
 player = ""
 suits = []
 cards = []
@@ -190,8 +187,6 @@ def check_for_existing_user():
 def place_bet():
     """Takes in input from user to declare their bet.  If they do not have enough money in their purse
     they are prompted to try again."""
-    # purse = player.purse
-    # int(input("How much would you like to add to your purse? "))
     if int(player.purse) == 0:
         print("You are out of money!  Please add more to continue.")
         add_to_purse(True)
@@ -236,7 +231,6 @@ def game_action(player_score, dealer_score):
         game_result()
     if dealer_score < 21 and not player_action:
         dealer_action(player_score, dealer_score)
-
     display_status()
     if not player_action:
         game_result()
@@ -246,10 +240,8 @@ def dealer_action(player_score, dealer_score):
     """After the player is done hitting the dealer is allowed to hit().
     This allows the dealer to hit() multiple times to get their score
     as close to 21 as possible."""
-    # TODO remove dealer_score from parameters
     global player_action
     player_action = False
-
     if 21 > get_score(dealer_hand) <= player_score and get_score(dealer_hand) != player_score:
         hit(dealer_hand)
     display_status()
@@ -257,7 +249,6 @@ def dealer_action(player_score, dealer_score):
     if get_score(dealer_hand) == player_score:
         display_status()
     elif 21 > get_score(dealer_hand) <= player_score:
-
         # dealer_action() is called recursively to allow for the dealer to hit multiple times #
         dealer_action(player_score, dealer_score)
 
@@ -302,7 +293,6 @@ def display_status():
 def game_result():
     """Calculates who wins the game and displays it to the screen."""
     global playing
-    # player_score, dealer_score = get_score(player_hand), get_score(dealer_hand)
     update_player_purse(scoring())
     playing = False
 
@@ -364,7 +354,9 @@ def update_player_purse(result):
 
 def add_to_purse(empty_purse=False):
     """Players can add to their purse if their bet is greater than their current purse
-    or if their purse is empty"""
+    or if their purse is empty.
+    Parameter empty_purse is set to default to false.  This function can be checked during
+    place_bet() and without this check the player is promoted twice to input their bet."""
     contribution = int(input("How much would you like to add to your purse? "))
     player.purse = str(int(player.purse) + int(contribution))
     if not empty_purse:
@@ -422,7 +414,7 @@ def main():
     each time the function is called.
     First, the cards are dealt and initial scores are displayed.
     The game loop is then started by calling game_action().
-    Finally, main() is called recursively if the player wants to continue to play."""
+    continue_check() is called to verify if the player wants to continue playing or not."""
 
     # Start first hand #
     create_deck()
@@ -434,7 +426,6 @@ def main():
     # Start game loop #
     while playing:
         game_action(get_score(player_hand), get_score(dealer_hand))
-
     continue_check()
 
 
