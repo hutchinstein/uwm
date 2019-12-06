@@ -140,6 +140,25 @@ def start_game():
     print("You have", player.purse, "in your purse.")
 
 
+def check_for_existing_user():
+    """Checks if first name and last name entered by user match name on the list
+    User has the option to delete or try again"""
+    global new_player
+    a = open("players.txt", "r")
+    for i in a:
+        if i.split(',')[0].strip() == player.f_name.strip() and i.split(',')[1].strip() == player.l_name.strip():
+            response = input("This player already exists, would you like to delete the old player? (y/n)")
+            if response.lower() == "y":
+                new_player = False
+                continue
+            elif response.lower() == 'n':
+                start_game()
+            else:
+                print("Invalid selection, please try again")
+                check_for_existing_user()
+    a.close()
+
+
 def create_deck():
     """Each game starts with a new deck.  The card values and suits are stored in separate text files.
     A nested for loop generates all card combinations and appends to deck list"""
@@ -174,25 +193,6 @@ def deal():
     for i in range(0, 2):
         player_hand.append(deck.pop())
         dealer_hand.append(deck.pop())
-
-
-def check_for_existing_user():
-    """Checks if first name and last name entered by user match name on the list
-    User has the option to delete or try again"""
-    global new_player
-    a = open("players.txt", "r")
-    for i in a:
-        if i.split(',')[0].strip() == player.f_name.strip() and i.split(',')[1].strip() == player.l_name.strip():
-            response = input("This player already exists, would you like to delete the old player? (y/n)")
-            if response.lower() == "y":
-                new_player = False
-                continue
-            elif response.lower() == 'n':
-                start_game()
-            else:
-                print("Invalid selection, please try again")
-                check_for_existing_user()
-    a.close()
 
 
 def place_bet():
