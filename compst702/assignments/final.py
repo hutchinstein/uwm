@@ -1,7 +1,6 @@
 import random
 
 # TODO offer to update purse when it reaches $0
-# TODO prompt 'Would you like to play another game?' needs to check for answers other than y or n
 
 """
 Initialize variables
@@ -191,6 +190,11 @@ def check_for_existing_user():
 def place_bet():
     """Takes in input from user to declare their bet.  If they do not have enough money in their purse
     they are prompted to try again."""
+    # purse = player.purse
+    # int(input("How much would you like to add to your purse? "))
+    if int(player.purse) == 0:
+        print("You are out of money!  Please add more to continue.")
+        add_to_purse(True)
     global bet
     try:
         bet = int(input("How much do you want to bet? "))
@@ -214,6 +218,7 @@ def game_action(player_score, dealer_score):
     """After scores are displayed, players have the option to hit or stay.
     This handles player interaction.  Players are able to hit as long as they have 21 or fewer points."""
     global playing, player_action
+
     if player_score <= 21 and player_action:
         try:
             response = input("Would you like to (h)it or (s)tay? ")
@@ -223,8 +228,10 @@ def game_action(player_score, dealer_score):
             elif response == 's':
                 dealer_action(player_score, dealer_score)
                 playing = False
+            else:
+                print("\nPlease enter a valid response\n")
         except ValueError:
-            print("Please enter a valid response")
+            print("\nPlease enter a valid response\n")
     elif player_score > 21:
         game_result()
     if dealer_score < 21 and not player_action:
@@ -244,7 +251,6 @@ def dealer_action(player_score, dealer_score):
     player_action = False
 
     if 21 > get_score(dealer_hand) <= player_score and get_score(dealer_hand) != player_score:
-        print('dealer hit')
         hit(dealer_hand)
     display_status()
 
@@ -296,8 +302,7 @@ def display_status():
 def game_result():
     """Calculates who wins the game and displays it to the screen."""
     global playing
-    player_score, dealer_score = get_score(player_hand), get_score(dealer_hand)
-    # print(player_score, dealer_score)
+    # player_score, dealer_score = get_score(player_hand), get_score(dealer_hand)
     update_player_purse(scoring())
     playing = False
 
@@ -334,10 +339,6 @@ def scoring():
         print("Blackjack!  You win!")
         blackjack = True
         result = "victory"
-    # TODO remove this debugging section
-    else:
-        print("Debugging scoring() \ndealer score", dealer_score, "\n"
-                                                                  "player score", player_score)
     return result
 
 
@@ -361,10 +362,13 @@ def update_player_purse(result):
     blackjack = False
 
 
-def add_to_purse():
+def add_to_purse(empty_purse=False):
+    """Players can add to their purse if their bet is greater than their current purse
+    or if their purse is empty"""
     contribution = int(input("How much would you like to add to your purse? "))
     player.purse = str(int(player.purse) + int(contribution))
-    place_bet()
+    if not empty_purse:
+        place_bet()
 
 
 def write_to_file():
@@ -391,17 +395,34 @@ def write_to_file():
         out_file.write(player_out)
 
 
+def continue_check():
+    """After each game is completed, check if the player wants to continue.  If the do, they are returned
+    to main.  Otherwise the player data is written to the player file."""
+    # Global variables #
+    global playing, player_hand, dealer_hand, player_action
+    player_continue = input("\nWould you like to play another game? (y/n)")
+    if player_continue.lower() == 'y':
+        playing = True
+        player_action = True
+        player_hand, dealer_hand = [], []
+        # Call to main() to play another game #
+        main()
+    elif player_continue.lower() == 'n':
+        write_to_file()
+        print("Goodbye,", player.f_name + ".")
+    # Verify player response is valid #
+    else:
+        print("Invalid selection.")
+        # Recursive call to validate player response #
+        continue_check()
+
+
 def main():
     """The main function of the program.  The player is initialized outside of this so they are not overwritten
     each time the function is called.
     First, the cards are dealt and initial scores are displayed.
     The game loop is then started by calling game_action().
     Finally, main() is called recursively if the player wants to continue to play."""
-
-    # Global variables #
-    global playing, player_hand, dealer_hand, player_action
-
-    quit = False
 
     # Start first hand #
     create_deck()
@@ -413,19 +434,9 @@ def main():
     # Start game loop #
     while playing:
         game_action(get_score(player_hand), get_score(dealer_hand))
-    # TODO make this part better
-    player_continue = input("\nWould you like to play another game?\nEnter 'y' to "
-                            "continue, enter any other key to quit. ")
-    if player_continue.lower() == 'y':
-        playing = True
-        player_action = True
-        player_hand, dealer_hand = [], []
 
-        # Recursive call to main() #
-        main()
-    else:
-        write_to_file()
-        print("Goodbye,", player.f_name + ".")
+    continue_check()
+
 
 start_game()
 main()
