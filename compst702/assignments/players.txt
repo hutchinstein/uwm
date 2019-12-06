@@ -1,4 +1,4 @@
-John,  Hutchinson, 2, 2, 13500
-Blair, Benes, 0, 0, 5000
-Charlie, Mingus, 1, 0, 252
-Mishka, Doosh, 0, 0, 5000
+John,Hutchinson,16,18,10500
+Blair,Benes,5,2,6100
+Charlie,Mingus,0,1,4500
+Mishka,Hutchinson,1,0,1100
