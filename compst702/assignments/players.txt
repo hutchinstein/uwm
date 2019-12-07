@@ -1,4 +1,5 @@
-John,Hutchinson,26,44,9950
-Blair,Benes,5,2,6100
+John,Hutchinson,44,65,200000
+Blair,Benes,6,2,6250
 Charlie,Mingus,0,1,4500
 Mishka,Hutchinson,1,0,1100
+Szyzyg,Warlock,1,0,200000
