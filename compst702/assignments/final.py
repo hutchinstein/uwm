@@ -15,6 +15,7 @@ ace = False
 player_action = True
 blackjack = False
 new_player = True
+greeting = True
 
 player = ""
 suits = []
@@ -85,7 +86,7 @@ def start_game():
     Players are able to save their name, wins, losses and purse, during
     this process they can choose to start with a saved character or
     start new."""
-    global player, new_player
+    global player, new_player, greeting
     new_player = True
 
     # Open list of players file #
@@ -127,23 +128,26 @@ def start_game():
     if new_player:
         player = Player(get_fname(), get_lname(), 0, 0, 0)
         check_for_existing_user()
-        try:
-            purse = int(input("New player created!\nHow much "
-                              "would you like to add to your purse $"))
-        except ValueError:
-            print("Please enter a number ")
-        player.purse = purse
+        greeting = True
+        if new_player:
+            try:
+                purse = int(input("New player created!\nHow much "
+                                  "would you like to add to your purse $"))
+            except ValueError:
+                print("Please enter a number ")
+            player.purse = purse
 
     else:
         player = Player(fname, lname, wins, losses, purse)
-    print("\nHello", player.f_name + ", welcome to Blackjack the Game. Good luck!\n")
-    print("You have", player.purse, "in your purse.")
+    if greeting:
+        print("\nHello", player.f_name + ", welcome to Blackjack the Game. Good luck!\n")
+        print("You have", player.purse, "in your purse.")
 
 
 def check_for_existing_user():
     """Checks if first name and last name entered by user match name on the list
     User has the option to delete or try again"""
-    global new_player
+    global new_player, greeting
     a = open("players.txt", "r")
     for i in a:
         if i.split(',')[0].strip() == player.f_name.strip() and i.split(',')[1].strip() == player.l_name.strip():
@@ -152,6 +156,7 @@ def check_for_existing_user():
                 new_player = False
                 continue
             elif response.lower() == 'n':
+                greeting = False
                 start_game()
             else:
                 print("Invalid selection, please try again")
