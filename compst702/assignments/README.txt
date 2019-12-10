@@ -107,4 +107,7 @@ main() is called after start_game and contains most of the game functions.  It h
 7. After games loop is completed, it calls continue_check()
 
 ##### How to run the program #####
+This program can be run in the command line or in an IDE.  All files listed in 'programming task and its specifications' section
+must be present or the program will crash.  Players.txt can be blank, however suits.txt and cards.txt cannot be altered.
+All required player input will be displayed to the screen.
 

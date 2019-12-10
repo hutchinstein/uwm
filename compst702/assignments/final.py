@@ -1,10 +1,5 @@
 import random
 
-# TODO fill out README.txt that explains:
-# TODO  > The programming task and its specifications
-# TODO  > Your programming design (e.g. what part of the program does what)
-# TODO  > How to run your program
-
 """
 Initialize variables
 """
