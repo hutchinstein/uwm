@@ -41,7 +41,37 @@ the following:
 3. If the player score is greater than 21 it calls the game_result() function since the player has no other moves.
 4. Checks if the player is still playing, if not game_result() is called to determine the outcome
 
+dealer_action(player_score, dealer_score) is called during game_action if the player decides to stay.  It handles
+the following:
+1. It checks if the dealer score is less than or equal to the player score and less than 21
+2. It checks if the dealer score is not equal to the player score
+3. If both of these conditions are true it calls the hit() function, adding a card to the dealers hand.
+4. display_status() is called to display both hands and the current score
+5. This will loop as long as the first two conditions are true
+6. After this loop is completed the game_action() process is resumed and game_result() is called
 
+display_status() is called frequently throughout the program.  It handles the following:
+1. It prints the dealer's and player's cards
+2. It gets both scores and prints them
+
+game_result() is called at the end of dealer_action().  It handles the following:
+1. Uses update_player_purse by with result of scoring()
+2. Sets playing variable to False
+
+scoring() is called by game_result().  It handles the following:
+1. Gets the player and dealer's scores
+2. Follows a series of if-elif statements to determine the outcome
+3. Returns either "victory" or "loss" which is used by update_player_purse()
+
+update_player_purse() is called by game_result().  It handles the following:
+1. Checks if blackjack variable has been set to True
+2. If blackjack is True, the bet is set to bet * 1.5
+3. Depending on the outcome of the game, the player is either awarded or deducted the bet
+4. It prints out the current purse balance as well as win/loss record
+
+add_to_purse() is called in two different areas within place_bet().  It handles the following:
+1. Prompts the player to type in how much they would like to contribute
+2. Updates the player purse total
 
 
 ##### How to run the program #####
