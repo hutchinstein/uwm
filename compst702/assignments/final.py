@@ -88,6 +88,7 @@ def start_game():
     start new."""
     global player, new_player, greeting
     new_player = True
+    user_defined = False
 
     # Open list of players file #
     a = open("players.txt", "r")
@@ -104,8 +105,14 @@ def start_game():
     print(str(counter) + ". New Player")
 
     # Take in user selection #
-    player = int(input("Enter your selection: "))
-    a.close()
+    while not user_defined:
+        try:
+            player = int(input("Enter your selection: "))
+            user_defined = True
+        except ValueError:
+            print("Invalid selection, please try again")
+            # start_game()
+        a.close()
 
     # Get player information #
     a = open("players.txt", "r")
@@ -373,10 +380,14 @@ def add_to_purse(empty_purse=False):
     or if their purse is empty.
     Parameter empty_purse is set to default to false.  This function can be checked during
     place_bet() and without this check the player is promoted twice to input their bet."""
-    contribution = int(input("How much would you like to add to your purse? "))
-    player.purse = str(int(player.purse) + int(contribution))
-    if not empty_purse:
-        place_bet()
+    try:
+        contribution = int(input("How much would you like to add to your purse? "))
+        player.purse = str(int(player.purse) + int(contribution))
+        if not empty_purse:
+            place_bet()
+    except ValueError:
+        print("Please enter a valid number")
+        add_to_purse()
 
 
 def write_to_file():
