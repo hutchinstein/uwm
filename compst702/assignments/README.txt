@@ -73,6 +73,38 @@ add_to_purse() is called in two different areas within place_bet().  It handles 
 1. Prompts the player to type in how much they would like to contribute
 2. Updates the player purse total
 
+hit(hand) is called in several areas.  It handles the following:
+1. It takes the card at the top of the deck and adds it to the hand listed in the parameter
+
+get_score(hand) is called in several areas.  It handles the following:
+1. It splits the card into a value and suit
+2. It uses the value portion against card_value dictionary to find value of the plain text
+3. If the card is an 'Ace' special handling is required.  If the current score + 11 is greater than 21 then only 
+1 is added to the score
+
+write_to_file() is called by continue_check() once all player and dealer action is completed.  It handles
+the following:
+1. Checks if player is new or not
+2. For new players it opens the players.txt file and appends the player information 
+3. For returning players the players.txt file is opened and each name is checked to see if it matches the current 
+player information.  If it does match, this information is overwritten by current player information.  All other 
+cases the player information is added to a player_out string.  This player_out string is then written to the file.
+4. Files are closed
+
+continue_check() is called in main() after all player and dealer action is completed.  It handles the following:
+1. Promts the player with an option to continue playing or not
+2. If the player says 'y' main() is called
+3. If the player says 'n' write_to_file() is called and and the game is overwrite
+4. If the player enters an invalid selection continue_check() is called recursively 
+
+main() is called after start_game and contains most of the game functions.  It handles the following:
+1. Calls create_deck
+2. Calls shuffle_deck
+3. Calls place_bet
+4. Calls deal()
+5. Calls display_status
+6. Initates game loop using a while loop
+7. After games loop is completed, it calls continue_check()
 
 ##### How to run the program #####
 
