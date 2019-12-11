@@ -1,0 +1,3 @@
+John,Hutchinson,47,68,218000
+Blair,Benes,6,2,6250
+Charlie,Mingus,1,2,9900
